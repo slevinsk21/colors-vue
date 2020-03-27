@@ -1,6 +1,10 @@
 {
   "name": "colors-vue",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slevinsk21/colors-vue"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
