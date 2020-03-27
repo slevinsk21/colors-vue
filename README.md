@@ -1,14 +1,14 @@
 # colors-vue
 
 > Project Created with Vue CLI
----
+
 > Framework: Vue.js
-```
+
 > HTTP Request: Fetch.js
-```
+
 > CSS FrameWork: Vuetify
 >> Sass
-```
+
 > ESlint
 
 ### Production
