@@ -3,7 +3,7 @@
     <Header />
 
     <v-content>
-      <ColorList />
+      <Layout />
     </v-content>
 
     <Footer />
@@ -11,17 +11,20 @@
 </template>
 
 <script>
+// Layout
+import Layout from '../src/views/Layout';
+
+// components
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ColorList from './components/ColorList';
 
 export default {
   name: 'App',
 
   components: {
+    Layout,
     Header,
     Footer,
-    ColorList
   }
 };
 </script>
