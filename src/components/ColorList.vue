@@ -22,14 +22,18 @@
     <v-col
       v-for="({ name, color, year, pantone_value }, i) in list"
       :key="i"
-      cols="4"
+      lg="4"
+      md="6"
+      sm="12"
     >
       <Color
+        :i="i"
         :name="name"
         :color="color"
         :year="year"
         :pantone="pantone_value"
-        @copy="copy(color)"
+        @copy="copyToClipboard(color)"
+        class="d-flex flex-wrap"
       />
     </v-col>
   </v-row>
@@ -72,8 +76,8 @@ export default {
     totalPages: null
   }),
 
-  created() {
-    this.getData();
+  async created() {
+    await this.getData();
   },
 
   watch: {
@@ -89,10 +93,8 @@ export default {
 
       try {
         const { data, total_pages } = await getAll('colors', q);
-        console.log(data, total_pages);
-
-        this.list = data // [];
-        this.totalPages = total_pages //0;
+        this.list = data;
+        this.totalPages = total_pages;
       } catch (e) {
         console.log(e);
         this.error = true;
@@ -101,10 +103,15 @@ export default {
         this.isLoading = false;
       }
     },
-    copy(color) {
-      color.select();
-      color.setSelectionRange(0, 99999);
+    copyToClipboard(color) {
+      const body = document.getElementsByTagName('body')[0];
+      const input = document.createElement('input');
+
+      body.appendChild(input);
+      input.setAttribute('value', color)
+      input.select();
       document.execCommand('copy');
+      body.removeChild(input);
     }
   }
 };
