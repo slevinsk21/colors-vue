@@ -1,53 +1,53 @@
 <template>
-<v-container>
-  <Loading :loading="!error && isLoading" />
+  <v-container>
+    <Loading :loading="!error && isLoading" />
 
-  <ContentMessage
-    v-if="error"
-    color="error darken-4"
-    message="Sorry an error has occurred"
-    :method="getData"
-    methodName="Reload data"
-  />
+    <ContentMessage
+      v-if="error"
+      color="error darken-4"
+      message="Sorry an error has occurred"
+      :method="getData"
+      methodName="Reload data"
+    />
 
-  <ContentMessage
-    v-if="!isLoading && list.length === 0"
-    color="warning"
-    message="OMG No data recieved"
-    :method="getData"
-    methodName="Reload data"
-  />
+    <ContentMessage
+      v-if="!isLoading && list.length === 0"
+      color="warning"
+      message="OMG No data recieved"
+      :method="getData"
+      methodName="Reload data"
+    />
 
-  <v-row v-if="!error && !isLoading && list.length > 0" dense>
-    <v-col
-      v-for="({ name, color, year, pantone_value }, i) in list"
-      :key="i"
-      lg="4"
-      md="6"
-      sm="12"
-    >
-      <Color
-        :i="i"
-        :name="name"
-        :color="color"
-        :year="year"
-        :pantone="pantone_value"
-        @copy="copyToClipboard(color)"
-        class="d-flex flex-wrap"
-      />
-    </v-col>
-  </v-row>
+    <v-row v-if="!error && !isLoading && list.length > 0" dense>
+      <v-col
+        v-for="({ name, color, year, pantone_value }, i) in list"
+        :key="i"
+        lg="4"
+        md="6"
+        sm="12"
+      >
+        <Color
+          :i="i"
+          :name="name"
+          :color="color"
+          :year="year"
+          :pantone="pantone_value"
+          @copy="copyToClipboard(color)"
+          class="d-flex flex-wrap"
+        />
+      </v-col>
+    </v-row>
 
 
-  <div v-if="!error && !isLoading && list.length > 0" class="text-center">
-  <v-pagination
-    color="pink darken-4"
-    circle
-    v-model="page"
-    :length="totalPages"
-  />
-</div>
-</v-container>
+    <div v-if="!error && !isLoading && list.length > 0" class="text-center">
+    <v-pagination
+      color="pink darken-4"
+      circle
+      v-model="page"
+      :length="totalPages"
+    />
+  </div>
+  </v-container>
 </template>
 
 <script>
@@ -96,7 +96,6 @@ export default {
         this.list = data;
         this.totalPages = total_pages;
       } catch (e) {
-        console.log(e);
         this.error = true;
       }
       finally {

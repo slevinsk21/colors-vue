@@ -24,7 +24,7 @@ export default {
   components: {
     Layout,
     Header,
-    Footer,
+    Footer
   }
 };
 </script>
