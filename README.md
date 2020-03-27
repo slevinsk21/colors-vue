@@ -1,5 +1,15 @@
 # colors-vue
 
+Project Created with Vue CLI
+Framework: vue
+HTTP Request: fetch.js
+CSS FrameWork: Vuetify
+Sass
+ESlint
+
+### Production
+See [now.sh URL](https://colors-vue.now.sh/)
+
 ## Project setup
 ```
 yarn install
@@ -21,4 +31,4 @@ yarn lint
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuration Reference](https://cli.vuejs.org/config/)
